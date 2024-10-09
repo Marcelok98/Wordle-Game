@@ -1,0 +1,33 @@
+body {
+    background-image: url('images/fondo.png'); /* Ruta del GIF */
+    background-size: cover; /* Hace que el GIF cubra toda la pantalla */
+    background-position: center; /* Centra el GIF en la pantalla */
+    background-attachment: fixed; /* Hace que el fondo no se mueva al hacer scroll */
+    color: black; /* Texto en color blanco para contraste */
+    font-family: 'Audiowide', cursive; 
+    height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+    margin: 0; /* Elimina márgenes por defecto */
+    text-align: center; /* Centra el texto */
+    font-size: 20px;
+}
+input::placeholder {
+    text-align: center;
+    color:rgb(0, 0, 0);
+    font-size: 15px;
+    font-family: 'Audiowide', cursive;
+    
+}
+input{
+    padding: 5px;
+    border-radius: 5px;
+    border-color: black;
+    font-size: 15px;
+    font-family: 'Audiowide', cursive;
+    color:rgb(0, 136, 255);
+    background-color: rgb(255, 241, 231);
+    font-weight: bold;
+}
+p{
+    font-weight: bold;
+}
+
