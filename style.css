@@ -1,9 +1,9 @@
 body {
-    background-image: url('images/fondo.png'); /* Ruta de la imagen */
-    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
-    background-position: center; /* Centra la imagen en la pantalla */
+    background-image: url('images/fondo.png'); /* Ruta del GIF */
+    background-size: cover; /* Hace que el GIF cubra toda la pantalla */
+    background-position: center; /* Centra el GIF en la pantalla */
     background-attachment: fixed; /* Hace que el fondo no se mueva al hacer scroll */
-    color: black; /* Texto en color negro para el contraste */
+    color: black; /* Texto en color blanco para contraste */
     font-family: 'Audiowide', cursive; 
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
     margin: 0; /* Elimina márgenes por defecto */
@@ -30,4 +30,76 @@ input{
 p{
     font-weight: bold;
 }
+#boton {
+    background-color: rgb(81, 165, 249);
+    padding: 6px;
+    border-radius: 5px;
+    border-color: black;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer; /*para cambiar el cursor al ponerlo sobre el boton*/
+}
 
+#boton:active {
+    transform: scale(0.9); /* Reduce el tamaño del botón */
+    background-color: #efdd20; /* Cambia el color del fondo */
+    box-shadow: 0 5px #cac378;
+    transform: translateY(4px); /* Simula que el botón se "hunde" */
+}
+
+#botonBorrar {
+    background-color: rgb(233, 148, 73);
+    padding: 6px;
+    border-radius: 5px;
+    border-color: black;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer; /*para cambiar el cursor al ponerlo sobre el boton*/
+}
+
+#botonBorrar:active {
+    transform: scale(0.9); /* Reduce el tamaño del botón */
+    background-color: #ef6220; /* Cambia el color del fondo */
+    box-shadow: 0 5px #e77c42;
+    transform: translateY(4px); /* Simula que el botón se "hunde" */
+}
+
+
+.reiniciar {
+    background-color: rgb(249, 223, 29);
+    padding: 6px;
+    border-radius: 5px;
+    border-color: black;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer; /*para cambiar el cursor al ponerlo sobre el boton*/
+    margin-top: 10px;
+}
+
+.reiniciar:active {
+    transform: scale(0.9); /* Reduce el tamaño del botón */
+    background-color: #60db3b; /* Cambia el color del fondo */
+    box-shadow: 0 5px #6cc95e;
+    transform: translateY(4px); /* Simula que el botón se "hunde" */
+    
+}
+
+ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding del ul */
+}
+
+li {
+    margin: 5px 0; /* Espacio entre las palabras */
+}
+
+span {
+    display: inline-block; /* Permite aplicar un tamaño a cada letra */
+    width: 30px; /* Ancho de cada cuadro */
+    height: 30px; /* Alto de cada cuadro */
+    line-height: 30px; /* Centra la letra verticalmente */
+    text-align: center; /* Centra la letra horizontalmente */
+    border: 1px solid #000; /* Bordes alrededor de cada letra */
+    margin-right: 5px; /* Espacio entre letras */
+    font-size: 20px; /* Tamaño de la letra */
+}
