@@ -89,16 +89,18 @@ boton.addEventListener('click', function() {
         
     }
     if (texto === palabraObjetivo){
-        c = 0;
         intentosRestantes=6;
         intentosTexto.textContent = 'Numero de intentos restantes: ' + intentosRestantes;
         lista.innerHTML = `¡Felicidades! Acertaste la palabra 😺`;
         botonBorrar.style.display = 'none';
         contenedor.appendChild(reiniciar);
+        reiniciar.style.display = 'inline';
         boton.style.display = 'none';
+        c = 0;
 
         
     }
+    input.value = '';
     
 });
 
