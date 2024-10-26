@@ -1,3 +1,5 @@
+const intentosTexto = document.getElementById('intentos');
+let intentosRestantes = 6;
 const input = document.getElementById('texto');
 const boton = document.getElementById('boton');
 const contenedor = document.getElementById('contenedor');
@@ -29,7 +31,7 @@ async function obtenerPalabraAleatoria() {
     } catch (error) {
         console.error('Error al obtener la palabra:', error);
         alert('No se pudo obtener una palabra aleatoria. Intenta nuevamente.');
-        return ""; // Retorna una cadena vacía si hay un error
+        return ""; // Retorna una cadena vacia si hay un error
     }
 }
 
@@ -49,13 +51,15 @@ boton.addEventListener('click', function() {
     //console.log(objetivo);
     const texto = document.getElementById('texto').value; //la palabra ingresada por el usuario
     if (texto.length === 5) {
+        intentosRestantes--;
+        intentosTexto.textContent = 'Numero de intentos restantes: ' + intentosRestantes;
         const nueva_palabra = document.createElement('li'); //elemento <li>
         for (let i = 0; i < texto.length; i++) {
             const letra = texto[i];
             const verde = palabraObjetivo[i];
             const span = document.createElement('span');
             span.textContent = letra;
-            // Verificar si la letra ingresada está en la palabra objetivo y en la misma posicion
+            // Verificar si la letra ingresada esta en la palabra objetivo y en la misma posicion
             if (verde === letra)
                 span.style.backgroundColor = 'green';
             else if(palabraObjetivo.includes(letra))
@@ -74,15 +78,10 @@ boton.addEventListener('click', function() {
         alert('Por favor, ingresa una palabra de exactamente 5 letras.'); // Alertar si la palabra no tiene 5 letras
         advertencia.innerHTML = '';
     }
-    if (c === 5) {
-        const mensaje = document.createElement('p');
-        mensaje.textContent = 'Ultimo intento.';
-        advertencia.appendChild(mensaje); // Agregar el mensaje al contenedor o a otro elemento
-    }
     if (c>5){
         lista.innerHTML = `La palabra a adivinar era: ${palabraObjetivo}`;
         advertencia.innerHTML = '';
-        contenedor.appendChild(reiniciar); // Agregar el botón al contenedor
+        contenedor.appendChild(reiniciar); // Agregar el boton al contenedor
         reiniciar.style.display = 'inline';
         botonBorrar.style.display = 'none';
         boton.style.display = 'none';
@@ -90,35 +89,44 @@ boton.addEventListener('click', function() {
         
     }
     if (texto === palabraObjetivo){
-        alert('Ganaste');
+        c = 0;
+        intentosRestantes=6;
+        intentosTexto.textContent = 'Numero de intentos restantes: ' + intentosRestantes;
+        lista.innerHTML = `¡Felicidades! Acertaste la palabra 😺`;
+        botonBorrar.style.display = 'none';
+        contenedor.appendChild(reiniciar);
+        boton.style.display = 'none';
+
+        
     }
     
 });
 
 botonBorrar.addEventListener('click', function() {
-    botonBorrar.style.display = 'none'; // Muestra el boton de rendirse
-});
-    
-
-botonBorrar.addEventListener('click', function() {
-    finalizar("Quieres intentarlo de nuevo?")
+    finalizar();
+    input.value='';
 });
 
 reiniciar.addEventListener('click', function() {
+    input.value = '';
     botonBorrar.style.display = 'none';
     reiniciar.style.display = 'none';
     boton.style.display = 'inline';
     lista.innerHTML = '';
     c=0;
+    intentosRestantes=6;
+    intentosTexto.textContent = 'Numero de intentos restantes: ' + intentosRestantes;
     obtenerPalabraAleatoria();
-
-
-    console.log('llego aqui') // Acción que se ejecutará al hacer clic
 });
 
-function finalizar(mensaje){
-    const lista = document.getElementById('lista'); // Obtener la lista
-    lista.innerHTML = mensaje; // Limpiar la lista
+function finalizar(){
+    lista.innerHTML = ''; // Limpiar la lista
     c = 0;
-    console.log(mensaje);
+    intentosRestantes=6;
+    intentosTexto.textContent = 'Numero de intentos restantes: ' + intentosRestantes;
+    lista.innerHTML = `La palabra a adivinar era: ${palabraObjetivo}`;
+    botonBorrar.style.display = 'none';
+    contenedor.appendChild(reiniciar);
+    reiniciar.style.display = 'inline';
+    boton.style.display = 'none';
 }
