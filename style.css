@@ -6,7 +6,7 @@ body {
     color: black; /* Texto en color blanco para contraste */
     font-family: 'Audiowide', cursive; 
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
-    margin: 0; /* Elimina márgenes por defecto */
+    margin: 0; /* Elimina margenes por defecto */
     text-align: center; /* Centra el texto */
     font-size: 20px;
 }
